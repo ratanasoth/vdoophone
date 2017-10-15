@@ -18,14 +18,15 @@ Route::get('/', function () {
 //Auth::routes();
 Route::auth();
 Route::get('/home', 'HomeController@index')->name('home');
-
-// loan
-Route::get('/loan', "LoanController@index");
-// pawn
-Route::get('/pawn', "PawnController@index");
+// sale
+Route::get('/sale', "SaleController@index");
+// pos
+Route::get('/pos', "POSController@index");
+// purchase
+Route::get("/purchase", "PurchaseController@index");
+// inventory
+Route::get("/inventory", "InventoryController@index");
 // settings
 Route::get('/setting', "SettingController@index");
 // Accounting
 Route::get('/accounting', "AccountingController@index");
-// Accounting
-Route::get('/parameter', "ParameterController@index");

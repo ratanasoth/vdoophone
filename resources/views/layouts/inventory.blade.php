@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Accounting - Vdoo</title>
+    <title>Inventory - Vdoo</title>
 
     <!-- Styles -->
     <!-- Bootstrap core CSS -->
@@ -41,11 +41,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/purchase')}}">Purchase</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('/inventory')}}">Inventory</a>
-            </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{url('/accounting')}}">Accounting <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{url('/inventory')}}">Inventory <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/accounting')}}">Accounting</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/setting')}}">Settings</a>

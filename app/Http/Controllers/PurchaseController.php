@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use Auth;
 use DB;
-class PawnController extends Controller
+use Auth;
+use Illuminate\Http\Request;
+
+class PurchaseController extends Controller
 {
     // index
     public function index()
@@ -14,6 +14,6 @@ class PawnController extends Controller
         {
             return redirect('/login');
         }
-        return view("pawns.index");
+        return view("purchases.index");
     }
 }

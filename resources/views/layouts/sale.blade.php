@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Vdoo MFI System</title>
+    <title>Sale - Vdoo</title>
 
     <!-- Styles -->
     <!-- Bootstrap core CSS -->
@@ -25,25 +25,27 @@
     <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">Vdoo MFI</a>
+    <a class="navbar-brand" href="#">Vdoo</a>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/home')}}">Dashboard</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('/loan')}}">Loan</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{url('/sale')}}">Sale <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/pawn')}}">Pawn</a>
+                <a class="nav-link" href="{{url('/pos')}}">POS</a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/purchase')}}">Purchase</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/inventory')}}">Inventory</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/accounting')}}">Accounting</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{url('/parameter')}}">Parameters <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/setting')}}">Settings</a>
