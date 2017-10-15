@@ -79,10 +79,16 @@
             <ul class="nav nav-pills flex-column" id="siderbar">
                 <li class="nav-item"><strong>Settings</strong></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">User Account</a>
+                    <a class="nav-link" href="#">Company</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link current" href="#">User Role</a>
+                    <a class="nav-link" href="#">Branch</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('/user')}}" id="user">User Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">User Role</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">User Permission</a>
