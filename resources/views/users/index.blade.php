@@ -5,10 +5,10 @@
             <div class="card">
                 <div class="card-header text-bold">
                     <i class="fa fa-align-justify"></i> User List&nbsp;&nbsp;
-                    <a href="{{url('/user/create')}}" class="btn btn-link btn-sm">New</a>
+                    <a href="{{url('/user/create')}}">New</a>
                 </div>
                 <div class="card-block">
-                    <table class="table table-condensed table-striped table-responsive">
+                    <table class="tbl">
                         <thead>
                         <tr>
                             <th>ID</th>

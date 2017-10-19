@@ -34,3 +34,29 @@ ul#siderbar>li>a{
     margin-top: 1px;
     margin-bottom: 1px;
 }
+.card-header{
+    padding: 4px 3px 2px 21px;
+}
+.btn-flat{
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+.lb{
+    font-size: 14px;
+    padding-top: 8px;
+    padding-left: 18px;
+}
+.sl{
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.btn{
+    font-size: 13px;
+}
+.form-control{
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    font-size: 13px;
+}
