@@ -46,3 +46,11 @@ Route::get("/inventory", "InventoryController@index");
 Route::get('/setting', "SettingController@index");
 // Accounting
 Route::get('/accounting', "AccountingController@index");
+// company
+Route::get('/company', "CompanyController@index");
+Route::get('/company/detail/{id}', "CompanyController@detail");
+Route::get('/company/create', "CompanyController@create");
+Route::get('/company/delete/{id}', "CompanyController@delete");
+Route::get('/company/edit/{id}', "CompanyController@edit");
+Route::post('/company/save', "CompanyController@save");
+Route::post('/company/update', "CompanyController@update");

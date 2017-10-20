@@ -16,7 +16,7 @@ class UserController extends Controller
         $data['users'] = DB::table('users')
             ->join("roles", "users.role_id","=", "roles.id")
             ->select("users.*", "roles.name as role_name")
-            ->get();
+            ->paginate(12);
         return view("users.index", $data);
     }
     // function to load user profile
@@ -51,15 +51,17 @@ class UserController extends Controller
             return view('permissions.no');
         }
         DB::table('users')->where('id', $id)->delete();
+        $page = @$_GET['page'];
+        if ($page>0)
+        {
+            return redirect('/user?page='.$page);
+        }
         return redirect('/user');
     }
     // function to upload photo
     public function update_profile(Request $r)
     {
 
-        $file_name = "";
-        $sms = "";
-        $sms1 = "";
         $lang = Auth::user()->language;
         if($lang=='kh')
         {
@@ -126,10 +128,10 @@ class UserController extends Controller
         if($lang=='kh')
         {
             $sms = "អ្នកប្រើប្រាស់ថ្មី ត្រូវបានបង្កើតដោយជោគជ័យ។";
-            $sms1 = "New user has been created successfully.";
+            $sms1 = "មិនអាចបង្កើតអ្នកប្រើប្រាស់ថ្មីបានទេ, សូមត្រួតពិនិត្យម្តងទៀត!";
         }
         else{
-            $sms = "មិនអាចបង្កើតអ្នកប្រើប្រាស់ថ្មីបានទេ, សូមត្រួតពិនិត្យម្តងទៀត!";
+            $sms = "New user has been created successfully!";
             $sms1 = "Fail to create new user. Please check your entry again!";
         }
         if($r->photo)
@@ -170,11 +172,11 @@ class UserController extends Controller
         if($lang=='kh')
         {
             $sms = "ពត៌មានអ្នកប្រើប្រាស់ ត្រូវបានផ្លាស់ប្តូរដោយជោគជ័យ។";
-            $sms1 = "All changes have been saved successfully.";
+            $sms1 = "មិនអាចធ្វើការផ្លាស់ពត៌មានបានទេ, អ្នកទំនងជាមិនបានផ្លាស់ប្តូរពត៌មានទេ។";
         }
         else{
-            $sms = "មិនអាចធ្វើការផ្លាស់ពត៌មានបានទេ, សូមត្រួតពិនិត្យម្តងទៀត!";
-            $sms1 = "Fail to update user. Please check your entry again!";
+            $sms = "All changes have been saved successfully.";
+            $sms1 = "Fail to update user. Please check your entry again. It seems you don't make any change!";
         }
         $data = array();
         if($r->photo)
@@ -219,27 +221,27 @@ class UserController extends Controller
     public function change_password(Request $r)
     {
         $id = Auth::user()->id;
-        $lang = Auth::user()->language;
         $new_password = $r->new_password;
         $confirm_password = $r->confirm_password;
         if ($new_password!=$confirm_password)
         {
-            if ($lang=='kh')
-            {
-                $r->session()->flash('sms1',"លេខសម្ងាត់ថ្មីមិនត្រឹមត្រូវទេ សូមពិនិត្យឡើងវិញ។");
-                return redirect('/user/reset-password')->withInput();
-            }
-            else{
                 $r->session()->flash('sms1',"The password is not matched, please check again.");
-                return redirect('/user/reset-password')->withInput();
-            }
+                return redirect('/user/update-password/'.$id)->withInput();
         }
         else{
             $data = array(
                 'password' => bcrypt($new_password)
             );
-            DB::table('users')->where('id', $id)->update($data);
-            return redirect('/user/finish');
+            $i = DB::table('users')->where('id', $id)->update($data);
+            if ($i)
+            {
+                $r->session()->flash('sms',"New password has been changed!");
+                return redirect('/user/update-password/'.$id);
+            }
+           else{
+               $r->session()->flash('sms1',"Fail to change password!");
+               return redirect('/user/update-password/'.$id);
+           }
         }
     }
     public function load_password($id)
@@ -313,7 +315,6 @@ class UserController extends Controller
     }
     public function delete_branch($id)
     {
-
         $i = DB::table('user_branches')->where('id', $id)->delete();
         return $i;
     }

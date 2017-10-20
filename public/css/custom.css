@@ -60,3 +60,17 @@ ul#siderbar>li>a{
     border-radius: 0px;
     font-size: 13px;
 }
+.fa{
+    font-size: 13px;
+}
+ul.pagination{
+    margin-top: 9px;
+}
+ul.pagination li{
+    padding-lef: 4px;
+    font-size: 13px;
+    border: 1px solid #ddd;
+}
+ul.pagination li a, ul.pagination li span{
+    padding: 5px 9px;
+}

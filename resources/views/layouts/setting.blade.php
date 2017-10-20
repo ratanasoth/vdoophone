@@ -78,7 +78,7 @@
             <ul class="nav nav-pills flex-column" id="siderbar">
                 <li class="nav-item"><strong>Settings</strong></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Company</a>
+                    <a class="nav-link" href="{{url('/company')}}" id="company">Company</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Branch</a>

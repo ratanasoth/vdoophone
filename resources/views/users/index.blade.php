@@ -4,8 +4,8 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header text-bold">
-                    <i class="fa fa-align-justify"></i> User List&nbsp;&nbsp;
-                    <a href="{{url('/user/create')}}">New</a>
+                    <strong>User List</strong>&nbsp;&nbsp;
+                    <a href="{{url('/user/create')}}"><i class="fa fa-plus"></i> New</a>
                 </div>
                 <div class="card-block">
                     <table class="tbl">
@@ -20,7 +20,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @php($i=1)
+                        <?php
+                            $pagex = @$_GET['page'];
+                            if(!$pagex)
+                                $pagex = 1;
+                            $i = 12 * ($pagex - 1) + 1;
+                        ?>
                         @foreach($users as $user)
                             <tr>
                                 <td>{{$i++}}</td>
@@ -29,15 +34,18 @@
                                 <td>{{$user->language=='kh'?'ខ្មែរ':'English'}}</td>
                                 <td>{{$user->role_name}}</td>
                                 <td>
-                                    <a href="{{url('/user/branch/'.$user->id)}}" title="New Branches"><i class="fa fa-list text-success"></i></a>&nbsp;&nbsp
+                                    {{--<a href="{{url('/user/branch/'.$user->id)}}" title="New Branches"><i class="fa fa-list text-success"></i></a>&nbsp;&nbsp--}}
                                     <a href="{{url('/user/update-password/'.$user->id)}}" title="Reset Password"><i class="fa fa-shield"></i></a>&nbsp;&nbsp
                                     <a href="{{url('/user/edit/'.$user->id)}}" title="Edit"><i class="fa fa-edit text-success"></i></a>&nbsp;&nbsp
-                                    <a href="{{url('/user/delete/'.$user->id)}}" onclick="return confirm('You want to delete?')" title="Delete"><i class="fa fa-remove text-danger"></i></a>
+                                    <a href="{{url('/user/delete/'.$user->id ."?page=".@$_GET["page"])}}" onclick="return confirm('You want to delete?')" title="Delete"><i class="fa fa-remove text-danger"></i></a>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
+                   <nav>
+                       {{$users->links()}}
+                   </nav>
                 </div>
             </div>
         </div>
