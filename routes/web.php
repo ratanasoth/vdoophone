@@ -61,3 +61,10 @@ Route::get("/category/edit/{id}", "CategoryController@edit");
 Route::get("/category/delete/{id}", "CategoryController@delete");
 Route::post("/category/save", "CategoryController@save");
 Route::post("/category/update", "CategoryController@update");
+// unit
+Route::get("/unit", "UnitController@index");
+Route::get("/unit/create", "UnitController@create");
+Route::get("/unit/edit/{id}", "UnitController@edit");
+Route::get("/unit/delete/{id}", "UnitController@delete");
+Route::post("/unit/save", "UnitController@save");
+Route::post("/unit/update", "UnitController@update");
