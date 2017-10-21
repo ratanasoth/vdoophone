@@ -87,7 +87,7 @@
                     <a class="nav-link" href="{{url('/warehouse')}}" id="warehouse">Warehouse</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">User Permission</a>
+                    <a class="nav-link" href="{{url('/unit')}}" id="unit">Unit</a>
                 </li>
             </ul>
         </nav>
