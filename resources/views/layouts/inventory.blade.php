@@ -19,6 +19,7 @@
     <!-- Custom styles for this template -->
     <link href="{{asset('css/dashboard.css')}}" rel="stylesheet">
     <link href="{{asset('css/custom.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset("css/table.css")}}">
 </head>
 <body>
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
@@ -79,10 +80,10 @@
             <ul class="nav nav-pills flex-column" id="siderbar">
                 <li class="nav-item"><strong>Settings</strong></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">User Account</a>
+                    <a class="nav-link" href="{{url('/category')}}" id="category">Category</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link current" href="#">User Role</a>
+                    <a class="nav-link" href="#">User Role</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">User Permission</a>

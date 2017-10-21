@@ -54,3 +54,7 @@ Route::get('/company/delete/{id}', "CompanyController@delete");
 Route::get('/company/edit/{id}', "CompanyController@edit");
 Route::post('/company/save', "CompanyController@save");
 Route::post('/company/update', "CompanyController@update");
+// category
+Route::get("/category", "CategoryController@index");
+Route::get("/category/create", "CategoryController@create");
+Route::post("/category/save", "CategoryController@save");
