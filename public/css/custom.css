@@ -74,3 +74,14 @@ ul.pagination li{
 ul.pagination li a, ul.pagination li span{
     padding: 5px 9px;
 }
+.form-group {
+    margin-bottom: 2px;
+}
+.card-header a{
+    margin: 0 5px 0 8px;
+}
+.alert{
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 0;
+}

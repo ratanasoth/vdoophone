@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header text-bold">
                     <strong>Edit User</strong>&nbsp;&nbsp;
-                    <a href="{{url('/user')}}"><i class="fa fa-arrow-left"></i> Back</a>
+                    <a href="{{url('/user')}}" class="text-success"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
                 <div class="card-block">
                     <div class="row">

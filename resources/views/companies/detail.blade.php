@@ -5,9 +5,10 @@
             <div class="card">
                 <div class="card-header">
                     <strong>Company Detail</strong>&nbsp;&nbsp;
-                    <a href="{{url('/company')}}"><i class="fa fa-arrow-left"></i> Back</a>
-                    &nbsp;&nbsp;
+                    <a href="{{url('/company/create')}}"><i class="fa fa-plus"></i> New</a>
                     <a href="{{url('/company/edit/'.$company->id)}}" class="text-danger"><i class="fa fa-pencil"></i> Edit</a>
+                    <a href="{{url('/company')}}" class="text-success"><i class="fa fa-arrow-left"></i> Back</a>
+
                 </div>
                 <div class="card-block">
                    <div class="row">
