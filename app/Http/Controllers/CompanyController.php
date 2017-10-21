@@ -7,40 +7,35 @@ use Auth;
 use DB;
 class CompanyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            if (Auth::user()==null)
+            {
+                return redirect("/login");
+            }
+            return $next($request);
+        });
+    }
+
     // index
     public function index(Request $r)
     {
-        if (Auth::user()==null)
-        {
-            return redirect("/login");
-        }
         $data['companies'] = DB::table("companies")->where("active",1)->orderBy("name")->paginate(12);
         return view("companies.index", $data);
     }
     // load detail company info
     public function detail($id)
     {
-        if (Auth::user()==null)
-        {
-            return redirect("/login");
-        }
         $data['company'] = DB::table("companies")->where("id", $id)->first();
         return view("companies.detail", $data);
     }
     public function create()
     {
-        if (Auth::user()==null)
-        {
-            return redirect("/login");
-        }
         return view("companies.create");
     }
     public function save(Request $r)
     {
-        if (Auth::user()==null)
-        {
-            return redirect("/login");
-        }
         $data = array(
             "code" => $r->code,
             "name" => $r->name,
@@ -72,19 +67,11 @@ class CompanyController extends Controller
     // load edit company form
     public function edit($id)
     {
-        if (Auth::user()==null)
-        {
-            return redirect("/login");
-        }
         $data['company'] = DB::table("companies")->where("id", $id)->first();
         return view("companies.edit", $data);
     }
     public function update(Request $r)
     {
-        if (Auth::user()==null)
-        {
-            return redirect("/login");
-        }
         $data = array(
             "code" => $r->code,
             "name" => $r->name,
@@ -116,10 +103,6 @@ class CompanyController extends Controller
     }
     public function delete($id)
     {
-        if (Auth::user()==null)
-        {
-            return redirect("/login");
-        }
         DB::table('companies')->where('id', $id)->update(["active"=>0]);
         $page = @$_GET['page'];
         if ($page>0)
