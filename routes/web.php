@@ -66,6 +66,7 @@ Route::post("/category/update", "CategoryController@update");
 Route::get("/warehouse", "WarehouseController@index");
 Route::get("/warehouse/create", "WarehouseController@create");
 Route::get("/warehouse/edit/{id}", "WarehouseController@edit");
+Route::get("/warehouse/delete/{id}", "WarehouseController@delete");
 Route::post("/warehouse/save", "WarehouseController@save");
 Route::post("/warehouse/update", "WarehouseController@update");
 
