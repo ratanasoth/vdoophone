@@ -78,3 +78,13 @@ Route::get("/unit/delete/{id}", "UnitController@delete");
 Route::post("/unit/save", "UnitController@save");
 Route::post("/unit/update", "UnitController@update");
 
+// supplier
+Route::get("/supplier", "SupplierController@index");
+Route::get("/supplier/create", "SupplierController@create");
+Route::get("/supplier/edit/{id}", "SupplierController@edit");
+Route::get("/supplier/delete/{id}", "SupplierController@delete");
+Route::post("/supplier/save", "SupplierController@save");
+Route::post("/supplier/update", "SupplierController@update");
+
+
+
