@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+header('Access-Control-Allow-Headers: X-Requested-With, origin, content-type');
 Route::get('/', function () {
     return redirect('/login');
 });
@@ -77,3 +77,6 @@ Route::get("/unit/delete/{id}", "UnitController@delete");
 Route::post("/unit/save", "UnitController@save");
 Route::post("/unit/update", "UnitController@update");
 
+Route::get("/company/get", function(){
+   return DB::table("companies")->get();
+});
