@@ -66,6 +66,7 @@ Route::post("/category/update", "CategoryController@update");
 Route::get("/warehouse", "WarehouseController@index");
 Route::get("/warehouse/create", "WarehouseController@create");
 Route::get("/warehouse/edit/{id}", "WarehouseController@edit");
+Route::get("/warehouse/delete/{id}", "WarehouseController@delete");
 Route::post("/warehouse/save", "WarehouseController@save");
 Route::post("/warehouse/update", "WarehouseController@update");
 
@@ -77,6 +78,11 @@ Route::get("/unit/delete/{id}", "UnitController@delete");
 Route::post("/unit/save", "UnitController@save");
 Route::post("/unit/update", "UnitController@update");
 
-Route::get("/company/get", function(){
-   return DB::table("companies")->get();
-});
+// supplier
+Route::get("/supplier", "SupplierController@index");
+Route::get("/supplier/create", "SupplierController@create");
+Route::get("/supplier/edit/{id}", "SupplierController@edit");
+Route::get("/supplier/delete/{id}", "SupplierController@delete");
+Route::post("/supplier/save", "SupplierController@save");
+Route::post("/supplier/update", "SupplierController@update");
+

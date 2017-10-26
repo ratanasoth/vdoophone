@@ -17,8 +17,10 @@
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{asset("chosen/chosen.css")}}">
     <link href="{{asset('css/dashboard.css')}}" rel="stylesheet">
     <link href="{{asset('css/custom.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset("css/table.css")}}">
 </head>
 <body>
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
@@ -79,11 +81,13 @@
             <ul class="nav nav-pills flex-column" id="siderbar">
                 <li class="nav-item"><strong>Settings</strong></li>
                 <li class="nav-item">
+                    <a class="nav-link current" id="supplier" href="{{url('supplier')}}">Suppliers</a>
+                </li>
+                
+                <li class="nav-item">
                     <a class="nav-link" href="#">User Account</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link current" href="#">User Role</a>
-                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="#">User Permission</a>
                 </li>
