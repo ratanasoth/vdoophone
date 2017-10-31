@@ -1,12 +1,12 @@
-@extends("layouts.inventory")
+@extends("layouts.setting")
 @section('content')
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <strong>Edit Category</strong>&nbsp;&nbsp;
-                    <a href="{{url('/category/create')}}"><i class="fa fa-plus"></i> New</a>
-                    <a href="{{url('/category')}}" class="text-success"><i class="fa fa-arrow-left"></i> Back</a>
+                    <strong>Edit Role</strong>&nbsp;&nbsp;
+                    <a href="{{url('/role/create')}}"><i class="fa fa-plus"></i> New</a>
+                    <a href="{{url('/role')}}" class="text-success"><i class="fa fa-arrow-left"></i> Back</a>
 
                 </div>
                 <div class="card-block">
@@ -30,37 +30,37 @@
                             </div>
                         </div>
                     @endif
-                    <form action="{{url('/category/update')}}" class="form-horizontal" method="post" onsubmit="return confirm('You want to save changes?')">
+                    <form action="{{url('/role/update')}}" class="form-horizontal" method="post" onsubmit="return confirm('You want to save?')">
                         {{csrf_field()}}
                         <div class="row">
                             <div class="col-sm-6">
-
+                            @if(Auth::user()->role_id==1)
+                                <div class="form-group row">
+                                    <label for="company_id" class="control-label col-sm-3 lb">Company</label>
+                                    <div class="col-sm-8">
+                                       <select class="form-control" id="company_id" name="company_id">
+                                            <option value="0"> </option>
+                                            @foreach($companies as $company)
+                                                <option value="{{$company->id}}" {{$company->id==$role->company_id?'selected':''}}>{{$company->name}}</option>
+                                            @endforeach
+                                       </select>
+                                    </div>
+                                </div>
+                            @endif
+                                
                                 <div class="form-group row">
                                     <label for="name" class="control-label col-sm-3 lb">Name <span class="text-danger">*</span></label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" value="{{$category->name}}" id="name" name="name" required>
-                                        <input type="hidden" name="id" value="{{$category->id}}">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="parent" class="control-label col-sm-3 lb">Parent</label>
-                                    <div class="col-sm-8">
-                                        <select name="parent" id="parent" class="form-control">
-                                            <option value="0">&nbsp;</option>
-                                            @foreach($categories as $cat)
-                                                <option value="{{$cat->id}}" {{$cat->id==$category->parent_id?'selected':''}}>{{$cat->name}}</option>
-                                            @endforeach
-                                        </select>
-                                        <p>
-                                            <br>
-                                            <button class="btn btn-primary btn-flat" type="submit">Save</button>
-                                            <button class="btn btn-danger btn-flat" type="button" onclick="location.reload()">Cancel</button>
-                                        </p>
+                                        <input type="text" class="form-control" value="{{$role->name}}" id="name" name="name" required>
+                                        <input type="hidden" name="id" value="{{$role->id}}">
+                                         <br>
+                                        <button class="btn btn-primary btn-flat" type="submit">Save Changes</button>
+                                        <button class="btn btn-danger btn-flat" type="button" onclick="location.reload()">Cancel</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-
+                               
                             </div>
                         </div>
                     </form>
@@ -76,8 +76,8 @@
     <script>
         $(document).ready(function () {
             $("#siderbar li a").removeClass("current");
-            $("#category").addClass("current");
-            $("select").chosen();
+            $("#role").addClass("current");
+           $("#company_id").chosen();
         })
     </script>
 

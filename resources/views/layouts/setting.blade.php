@@ -15,6 +15,7 @@
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
+        <link rel="stylesheet" href="{{asset("chosen/chosen.css")}}">
     <link href="{{asset('css/dashboard.css')}}" rel="stylesheet">
     <link href="{{asset('css/custom.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset("css/table.css")}}">
@@ -81,13 +82,13 @@
                     <a class="nav-link" href="{{url('/company')}}" id="company">Company</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Branch</a>
+                    <a class="nav-link" href="{{url('/branch')}}" id="branch">Branch</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/user')}}" id="user">User Account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">User Role</a>
+                    <a class="nav-link" href="{{url('/role')}}" id="role">User Role</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">User Permission</a>

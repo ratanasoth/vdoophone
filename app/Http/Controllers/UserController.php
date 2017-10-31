@@ -7,16 +7,31 @@ use Auth;
 use DB;
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            if (Auth::user()==null)
+            {
+                return redirect("/login");
+            }
+            return $next($request);
+        });
+    }
     // function to load profile view
     public  function index()
     {
-        if(!Right::check('User', 'l')){
-            return view('permissions.no');
-        }
         $data['users'] = DB::table('users')
             ->join("roles", "users.role_id","=", "roles.id")
             ->select("users.*", "roles.name as role_name")
             ->paginate(12);
+        if(Auth::user()->role_id>1)
+        {
+            $data['users'] = DB::table('users')
+            ->join("roles", "users.role_id","=", "roles.id")
+            ->where("users.company_id", Auth::user()->company_id)
+            ->select("users.*", "roles.name as role_name")
+            ->paginate(12);
+        }
         return view("users.index", $data);
     }
     // function to load user profile

@@ -31,6 +31,13 @@ Route::post('/user/save-password', "UserController@update_password");
 Route::get('/user/branch/{id}', "UserController@branch");
 Route::post('/user/branch/save', "UserController@add_branch");
 Route::get('/user/branch/delete/{id}', "UserController@delete_branch");
+// role
+Route::get("/role", "RoleController@index");
+Route::get("/role/create", "RoleController@create");
+Route::get("/role/edit/{id}", "RoleController@edit");
+Route::get("/role/delete/{id}", "RoleController@delete");
+Route::post("/role/save", "RoleController@save");
+Route::post("/role/update", "RoleController@update");
 //Auth::routes();
 Route::auth();
 Route::get('/home', 'HomeController@index')->name('home');
@@ -54,6 +61,13 @@ Route::get('/company/delete/{id}', "CompanyController@delete");
 Route::get('/company/edit/{id}', "CompanyController@edit");
 Route::post('/company/save', "CompanyController@save");
 Route::post('/company/update', "CompanyController@update");
+// branch
+Route::get("/branch", "BranchController@index");
+Route::get("/branch/create", "BranchController@create");
+Route::get("/branch/edit/{id}", "BranchController@edit");
+Route::get("/branch/delete/{id}", "BranchController@delete");
+Route::post("/branch/save", "BranchController@save");
+Route::post("/branch/update", "BranchController@update");
 // category
 Route::get("/category", "CategoryController@index");
 Route::get("/category/create", "CategoryController@create");
@@ -86,3 +100,11 @@ Route::get("/supplier/delete/{id}", "SupplierController@delete");
 Route::post("/supplier/save", "SupplierController@save");
 Route::post("/supplier/update", "SupplierController@update");
 
+// product
+Route::get("/product", "ProductController@index");
+Route::get("/product/create", "ProductController@create");
+Route::get("/product/detail/{id}", "ProductController@detail");
+Route::get("/product/edit/{id}", "ProductController@edit");
+Route::get("/product/delete/{id}", "ProductController@delete");
+Route::post("/product/save", "ProductController@save");
+Route::post("/product/update", "ProductController@update");
