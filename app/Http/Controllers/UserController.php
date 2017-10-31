@@ -48,6 +48,10 @@ class UserController extends Controller
             return view('permissions.no');
         }
         $data['roles'] = DB::table('roles')->get();
+        if(Auth::user()->role_id>1)
+        {
+            $data['roles'] = DB::table('roles')->where("company_id", Auth::user()->company_id)->get();
+        }
         return view('users.create', $data);
     }
     public function edit($id)
@@ -57,6 +61,10 @@ class UserController extends Controller
         }
         $data['user'] = DB::table('users')->where('id', $id)->first();
         $data['roles'] = DB::table('roles')->get();
+        if(Auth::user()->role_id>1)
+        {
+            $data['roles'] = DB::table('roles')->where("company_id", Auth::user()->company_id)->get();
+        }
         return view('users.edit', $data);
     }
     // delete a user by his/her id
@@ -194,28 +202,19 @@ class UserController extends Controller
             $sms1 = "Fail to update user. Please check your entry again. It seems you don't make any change!";
         }
         $data = array();
+        $data = array(
+            'name' => $r->name,
+            'email' => $r->email,
+            'language' => $r->language,
+            'role_id' => $r->role
+        );
         if($r->photo)
         {
             $file = $r->file('photo');
             $file_name = $file->getClientOriginalName();
             $destinationPath = 'profile/'; // usually in public folder
             $file->move($destinationPath, $file_name);
-            $data = array(
-                'name' => $r->name,
-                'email' => $r->email,
-                'photo' => $file_name,
-                'language' => $r->language,
-                'role_id' => $r->role
-            );
-        }
-        else
-        {
-            $data = array(
-                'name' => $r->name,
-                'email' => $r->email,
-                'language' => $r->language,
-                'role_id' => $r->role
-            );
+            $data['photo'] = $file_name;
         }
         $i = DB::table('users')->where('id', $r->id)->update($data);
         if ($i)

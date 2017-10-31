@@ -79,6 +79,39 @@
     <div class="row">
         <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
             <ul class="nav nav-pills flex-column" id="siderbar">
+                <li class="nav-item"><strong>Opteration</strong></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="transfer">Transfer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="in">Stock In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="out">Stock Out</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="onhand">On Hand</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="scrap">Scrap</a>
+                </li>
+                <li class="nav-item"><strong>Stock Item</strong></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="product">Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="phone">Phone</a>
+                </li>
+                <li class="nav-item"><strong>Reports</strong></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="balance">Stock Balance</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="stockin">Stock In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="stockout">Stock Out</a>
+                </li>
                 <li class="nav-item"><strong>Settings</strong></li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/category')}}" id="category">Category</a>
@@ -88,6 +121,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/unit')}}" id="unit">Unit</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="attribute">Attribute</a>
                 </li>
             </ul>
         </nav>
