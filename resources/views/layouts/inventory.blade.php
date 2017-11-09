@@ -21,6 +21,7 @@
     <link href="{{asset('css/dashboard.css')}}" rel="stylesheet">
     <link href="{{asset('css/custom.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset("css/table.css")}}">
+    
 </head>
 <body>
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
@@ -123,7 +124,7 @@
                     <a class="nav-link" href="{{url('/unit')}}" id="unit">Unit</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="attribute">Attribute</a>
+                    <a class="nav-link" href="{{url('/attribute')}}" id="attribute">Attribute</a>
                 </li>
             </ul>
         </nav>

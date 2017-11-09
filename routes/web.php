@@ -108,3 +108,19 @@ Route::get("/product/edit/{id}", "ProductController@edit");
 Route::get("/product/delete/{id}", "ProductController@delete");
 Route::post("/product/save", "ProductController@save");
 Route::post("/product/update", "ProductController@update");
+
+// attribute
+Route::get("/attribute", "AttributeController@index");
+Route::get("/attribute/create", "AttributeController@create");
+Route::get("/attribute/edit/{id}", "AttributeController@edit");
+Route::get("/attribute/delete/{id}", "AttributeController@delete");
+Route::post("/attribute/save", "AttributeController@save");
+Route::post("/attribute/update", "AttributeController@update");
+
+// tax
+Route::get("/tax", "TaxController@index");
+Route::get("/tax/create", "TaxController@create");
+Route::get("/tax/edit/{id}", "TaxController@edit");
+Route::get("/tax/delete/{id}", "TaxController@delete");
+Route::post("/tax/save", "TaxController@save");
+Route::post("/tax/update", "TaxController@update");

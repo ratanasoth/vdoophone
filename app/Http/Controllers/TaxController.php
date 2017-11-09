@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Auth;
 
-class AttributeController extends Controller
+class TaxController extends Controller
 {
     //
     public function __construct()
@@ -21,69 +21,73 @@ class AttributeController extends Controller
     }
 
     public function index(Request $r){
-    	 $data['attributes'] = DB::table("attributes")
+    	 $data['taxes'] = DB::table("taxes")
+    	 	->where("active" , 1)
             ->where("company_id", Auth::user()->company_id)
             ->orderBy("name")
             ->paginate(12);
-    	return view('attribute.index' , $data);
+    	return view('tax.index' , $data);
     }
 
     public function create(Request $r) {
-    	return view('attribute.create');
+    	return view('tax.create');
     }
 
     public function save(Request $r){
     	$data = array(
             "name" => $r->name,
-            "value" => $r->value,
+            "type" => $r->type,
+            "computation" => $r->computation,
+            "amount" => $r->amount,
             "create_by" => Auth::user()->id,
             "company_id" => Auth::user()->company_id
         );
-        $i = DB::table("attributes")->insert($data);
+        $i = DB::table("taxes")->insert($data);
         if ($i)
         {
-            $r->session()->flash("sms", "New attribute has been created successfully!");
-            return redirect("/attribute/create");
+            $r->session()->flash("sms", "New tax has been created successfully!");
+            return redirect("/tax/create");
         }
         else{
-            $r->session()->flash("sms1", "Fail to create new attribute!");
-            return redirect("/attribute/create");
+            $r->session()->flash("sms1", "Fail to create new tax!");
+            return redirect("/tax/create");
         }
     }
 
     public function edit($id)
     {
         
-        $data['attribute'] = DB::table("attributes")->where("id", $id)->first();
-        return view("attribute.edit", $data);
+        $data['tax'] = DB::table("taxes")->where("id", $id)->first();
+        return view("tax.edit", $data);
     }
 
     public function update(Request $r){
     	$data = array(
             "name" => $r->name,
-            "value" => $r->value
+            "type" => $r->type,
+            "computation" => $r->computation,
+            "amount" => $r->amount,
         );
-        $i = DB::table("attributes")->where("id", $r->id)->update($data);
+        $i = DB::table("taxes")->where("id", $r->id)->update($data);
         if ($i)
         {
             $r->session()->flash("sms", "All changes have saved successfully!");
-            return redirect("/attribute/edit/". $r->id);
+            return redirect("/tax/edit/". $r->id);
         }
         else{
             $r->session()->flash("sms1", "Fail to save change. You may not make any change!");
-            return redirect("/attribute/edit/". $r->id);
+            return redirect("/tax/edit/". $r->id);
         }
     }
 
     public function delete($id)
     {
-        
-        DB::table('attributes')->where('id', $id)->delete();
+        DB::table('taxes')->where('id', $id)->update(["active"=>0]);
         $page = @$_GET['page'];
         if ($page>0)
         {
-            return redirect('/attribute?page='.$page);
+            return redirect('/tax?page='.$page);
         }
-        return redirect('/attribute');
+        return redirect('/tax');
     }
 }
