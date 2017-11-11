@@ -7,6 +7,10 @@ use DB;
 use Auth;
 class SaleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("auth");
+    }
     // index function
     public function index()
     {
