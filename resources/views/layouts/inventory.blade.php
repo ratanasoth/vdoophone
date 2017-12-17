@@ -98,7 +98,7 @@
                 </li>
                 <li class="nav-item"><strong>Stock Item</strong></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="product">Product</a>
+                    <a class="nav-link" href="{{url('/product')}}" id="product">Product</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" id="phone">Phone</a>
