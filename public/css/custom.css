@@ -35,7 +35,7 @@ ul#siderbar>li>a{
     margin-bottom: 1px;
 }
 .card-header{
-    padding: 4px 3px 2px 21px;
+    padding: 4px 3px 4px 21px;
 }
 .btn-flat{
     -webkit-border-radius: 0px;
@@ -53,6 +53,7 @@ ul#siderbar>li>a{
 }
 .btn{
     font-size: 13px;
+    cursor: pointer;
 }
 .form-control{
     -webkit-border-radius: 0px;
@@ -67,7 +68,7 @@ ul.pagination{
     margin-top: 9px;
 }
 ul.pagination li{
-    padding-lef: 4px;
+    padding-left: 4px;
     font-size: 13px;
     border: 1px solid #ddd;
 }
@@ -79,6 +80,20 @@ ul.pagination li a, ul.pagination li span{
 }
 .card-header a{
     margin: 0 5px 0 8px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 2px 5px;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.card-header a:hover{
+    margin: 0 5px 0 8px;
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 2px 5px;
+    font-size: 12px;
+    background: #fff;
 }
 .alert{
     padding: 5px 9px;

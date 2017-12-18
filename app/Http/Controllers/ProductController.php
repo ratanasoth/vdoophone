@@ -36,12 +36,16 @@ class ProductController extends Controller
 
     public function stockin()
     {
-        return view('products.stockin');
+        $data['warehouses'] = DB::table('warehouses')->get();
+
+        return view('products.stockin', $data);
     }
 
     public function createstockin()
     {
-        return view('products.createstockin');
+        $data['warehouses'] = DB::table('warehouses')->get();
+
+        return view('products.createstockin', $data);
     }
 
     public function stockout()
