@@ -57,7 +57,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="name" class="control-label col-sm-3 lb">Description <span class="text-danger">*</span></label>
+                                    <label for="name" class="control-label col-sm-3 lb">Description</label>
                                     <div class="col-sm-8">
                                         <textarea type="text" class="form-control" id="description" name="description">
                                             {{$product->description}}
@@ -65,9 +65,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="name" class="control-label col-sm-3 lb">Price <span class="text-danger">*</span></label>
+                                    <label for="name" class="control-label col-sm-3 lb">Price</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" value="{{{$product->price}}" id="price" name="price" required>
+                                        <input type="text" class="form-control" value="{{$product->price}}" id="price" name="price">
                                     </div>
                                 </div>
                                 <div class="form-group row">

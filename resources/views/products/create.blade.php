@@ -56,7 +56,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="name" class="control-label col-sm-3 lb">Description <span class="text-danger">*</span></label>
+                                    <label for="name" class="control-label col-sm-3 lb">Description</label>
                                     <div class="col-sm-8">
                                         <textarea type="text" class="form-control" id="description" name="description">
                                             {{old('description')}}
@@ -64,7 +64,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="name" class="control-label col-sm-3 lb">Price <span class="text-danger">*</span></label>
+                                    <label for="name" class="control-label col-sm-3 lb">Price</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" value="{{old('price')}}" id="price" name="price" required>
                                     </div>
