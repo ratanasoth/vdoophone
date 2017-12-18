@@ -51,6 +51,8 @@ class ProductController extends Controller
             "barcode" => $request->barcode,
             "name" => $request->name,
             "category_id" => $request->category_id,
+            "description" => $request->description,
+            "price" => $request->price,
             "photo" => $file_name
         );
 
@@ -85,6 +87,8 @@ class ProductController extends Controller
             "barcode" => $request->barcode,
             "name" => $request->name,
             "category_id" => $request->category_id,
+            "description" => $request->description,
+            "price" => $request->price,
             "photo" => $file_name
         );
 

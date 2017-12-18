@@ -58,9 +58,7 @@
                                 <div class="form-group row">
                                     <label for="name" class="control-label col-sm-3 lb">Description</label>
                                     <div class="col-sm-8">
-                                        <textarea type="text" class="form-control" id="description" name="description">
-                                            {{old('description')}}
-                                        </textarea>
+                                        <textarea type="text" class="form-control" id="description" name="description">{{old('description')}}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
