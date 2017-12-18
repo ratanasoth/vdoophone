@@ -85,13 +85,13 @@
                     <a class="nav-link" href="#" id="transfer">Transfer</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="in">Stock In</a>
+                    <a class="nav-link" href="{{url('/stockin')}}" id="in">Stock In</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="out">Stock Out</a>
+                    <a class="nav-link" href="{{url('/stockout')}}" id="out">Stock Out</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="onhand">On Hand</a>
+                    <a class="nav-link" href="{{url('/stockonhand')}}" id="onhand">On Hand</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" id="scrap">Scrap</a>

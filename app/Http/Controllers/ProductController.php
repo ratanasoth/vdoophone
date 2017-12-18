@@ -34,6 +34,36 @@ class ProductController extends Controller
         return view('products.edit', $data);
     }
 
+    public function stockin()
+    {
+        return view('products.stockin');
+    }
+
+    public function createstockin()
+    {
+        return view('products.createstockin');
+    }
+
+    public function stockout()
+    {
+        return view('products.stockout');
+    }
+
+    public function createstockout()
+    {
+        return view('products.createstockout');
+    }
+
+    public function stockonhand()
+    {
+        $data["onhands"] = DB::table('onhands as t')
+                            ->rightJoin('products as p', 't.product_id', '=', 'p.id')
+                            ->select('t.product_id', 't.quantity', 'p.barcode', 'p.name')
+                            ->get();
+
+        return view('products.stockonhand', $data);
+    }
+
     public function save(Request $request)
     {
         $file_name ="default.png";

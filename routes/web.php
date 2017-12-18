@@ -106,6 +106,11 @@ Route::get("/product/create", "ProductController@create");
 Route::get("/product/detail/{id}", "ProductController@detail");
 Route::get("/product/edit/{id}", "ProductController@edit");
 Route::get("/product/delete/{id}", "ProductController@delete");
+Route::get("/stockin", "ProductController@stockin");
+Route::get("/stockout", "ProductController@stockout");
+Route::get("/createstockin", "ProductController@createstockin");
+Route::get("/createstockout", "ProductController@createstockout");
+Route::get("/stockonhand", "ProductController@stockonhand");
 Route::post("/product/save", "ProductController@save");
 Route::post("/product/update", "ProductController@update");
 
